@@ -1,0 +1,37 @@
+
+{% extends "admin/base.html" %}
+
+{% block main %}
+<div id="content">
+<div id="article">
+<dl>
+<dt><a href="/admin/posts/{{ post.id}}">{{ post.title }}</a></dt>
+<dd>{{ post.content|safe }}</dd>
+</dl>
+</div> <!-- end article -->
+
+<div id="comments">
+
+<h3>Comments</h3>
+    {% if not cs %}
+        <b>暂无评论</b>
+    {% else %}
+        {%for comment in cs %}
+            <dd>{{ comment.name }} add comments:</dd>
+            <dd>{{ comment.comments }}</dd>
+        {% endfor %}
+    {% endif %}
+
+</div>
+</div> <!-- end content -->
+
+<div id="sidebar">
+
+<div id="list">
+
+
+
+</div> <!-- end list -->
+
+</div> <!-- end sidebar -->
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "admin/base.html" %}
+
+{% block main %}
+<h1>后台管理</h1>
+    {% if 'admin_uid' in session %}
+    <li><a href="{{ url_for('.show_posts') }}">All Posts</a></li>
+    <li><a href="{{ url_for('.add_post') }}">Add post</a><li>
+    <li><a href="{{ url_for('admin.signout') }}">Sign Out</a></li>
+    {% else %}
+    <li><a href="{{ url_for('admin.signin') }}">Sign In</a></li>
+    {% endif %}
+{% endblock %}
